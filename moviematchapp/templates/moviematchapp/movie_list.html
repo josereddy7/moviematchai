@@ -1,0 +1,13 @@
+{% extends "moviematchapp/base.html" %}
+
+{% block body %}
+
+<div class="container mx-auto text-white">
+    <h2 class="mx-20 mt-20 text-5xl">Our Movies</h2>
+    <div class="relative">
+        {% include "moviematchapp/movies.partial.html" %}
+        {% include "moviematchapp/pagination.partial.html" %}
+    </div>
+</div>
+
+{% endblock %}

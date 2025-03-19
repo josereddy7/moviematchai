@@ -1,0 +1,37 @@
+<div
+    class="mt-30 mx-20 grid grid-cols-[repeat(auto-fit,230px)] grid-flow-col gap-6 overflow-hidden overflow-x-hidden relative z-10 scroll-smooth transition-all scrolbar-none">
+
+    {% for movie in movies %}
+
+
+    <a href="{% url 'movie' movie.id %}"
+        class="w-full min-w-[230px] h-90 overflow-hidden block rounded relative hover:scale-105 transition-all">
+
+        {% if movie.poster %}
+        <img class="w-full" src="{{movie.poster}}" />
+
+        {% else %}
+        <p>
+            No poster available!
+        </p>
+        {% endif %}
+
+
+        <div class="absolute bottom-0 h-30 bg-black/60 p-2 w-full text-white">
+            <h2 class="text-ellipsis text-lg font-semibold">
+                {{ movie.title }}
+            </h2>
+
+            <div class="flex justify-between bottom-0">
+                <p>
+                    {{ movie.released | date }}
+                </p>
+            </div>
+        </div>
+    </a>
+
+    {% empty %}
+    <p>No movies found.</p>
+
+    {% endfor %}
+</div>

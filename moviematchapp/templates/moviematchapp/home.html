@@ -1,0 +1,26 @@
+{% extends "moviematchapp/base.html" %}
+
+{% block body %}
+
+<div class="container mx-auto flex items-center justify-center min-h-screen">
+  <form method="GET" action="{% url 'search' %}" class="w-1/2 p-4">
+    <input class="border-1 p-2 rounded text-sm text-slate-200" type="text" name="title" placeholder="Title"><br>
+    <input class="border-1 p-2 rounded text-sm text-slate-200" type="text" name="actor" placeholder="Actor"><br>
+    <input class="border-1 p-2 rounded text-sm text-slate-200" type="text" name="genre" placeholder="Genre"><br>
+    <input class="border-1 p-2 rounded text-sm text-slate-200" type="text" name="q" placeholder="Any query"><br>
+    
+    <button class="text-white ring-4 p-3 ring-offset-[0.55rem] rounded-[50%] cursor-pointer" type="submit">Search</button>
+    <p class="pt-10 text-white ">
+    You can also search by movie name or genre or actor.
+    </p>
+    <p class="pt-10 text-white ">
+      For example: <br>
+      The Black Pirate<br>
+      The Block Hole<br>
+    </p>
+
+  </form>
+
+  </div>
+
+{% endblock %}
