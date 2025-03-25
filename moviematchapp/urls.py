@@ -4,10 +4,7 @@ from django.urls import path
 from .views import MoviesHomeView 
 from .views import MoviesDetailView # Step 9
 from .views import SearchResultsView # Step 11
-
-
 from django.views.generic.base import TemplateView # Step 11
-from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path("movies/", MoviesHomeView.as_view(), name="movies"), 

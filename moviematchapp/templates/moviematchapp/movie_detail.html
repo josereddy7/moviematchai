@@ -41,7 +41,7 @@
 
 </div>
 
-
+{% if movies %}
 <div class="relative">
   <div class="mt-5 mx-20 text-white">
     <h2 class="text-5xl">You may also like to watch:</h2>
@@ -50,6 +50,6 @@
   {% include "moviematchapp/movies.partial.html" %}
 
 </div>
-</div>
+{% endif %}
 
 {% endblock %}

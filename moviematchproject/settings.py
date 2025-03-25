@@ -14,7 +14,8 @@ import django_mongodb_backend
 
 from pathlib import Path
 AUTH_USER_MODEL = "usersapp.User"
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "users/login"
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

@@ -1,19 +1,7 @@
 from django.db import models
-
-# Create your models here.
-
-# Step 7: After creating the app and adding it to setting.py, let's create the models for movies
-
 from django_mongodb_backend.fields import ArrayField
-#from django_mongodb_backend.models import EmbeddedModel
-
 from django_mongodb_backend.managers import MongoManager # Step 10
 
-
-#class Award(EmbeddedModel):
-#    wins = models.IntegerField(default=0)
-#    nominations = models.IntegerField(default=0)
-#    text = models.CharField(max_length=100)
 
     
 
@@ -26,7 +14,6 @@ class Movie(models.Model):
     poster =  models.URLField()
     runtime = models.IntegerField(default=0)
     released = models.DateTimeField("release date", null=True, blank=True)
-    #awards = EmbeddedModelField(Award, null=True, blank=True)
     cast = ArrayField(models.CharField(max_length=200))
     genres = ArrayField(models.CharField(max_length=100), null=True, blank=True)
     objects = MongoManager() # Step 10 Custom manager for MongoDB support
@@ -45,7 +32,7 @@ class Movie(models.Model):
                     "index": "vector_index",
                     "path": "plot_embedding",
                     "queryVector": self.plot_embedding,
-                    "numCandidates": 100,  # Optimized for efficiency
+                    "numCandidates": 100, 
                     "limit": 5  # Return top 5 most similar movies
                 }
             },
@@ -62,8 +49,9 @@ class Movie(models.Model):
 
         try:
             return list(Movie.objects.raw_aggregate(pipeline))  # Ensure results are returned as a list
-        except AttributeError:
-            return []  # Fallback to prevent crashes if `raw_aggregate` is unavailable
+        except:
+            return []  
+
 
     class Meta:
         db_table = "embedded_movies"
