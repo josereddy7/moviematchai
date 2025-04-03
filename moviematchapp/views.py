@@ -45,7 +45,7 @@ class SearchResultsView(ListView):
         pipeline = [
             {
                 "$search": {
-                    "index": "fullplot_index",
+                    "index": "default",
                     "compound": {
                         "should": []
                     }
