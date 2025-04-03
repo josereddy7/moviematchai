@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-+!cfw*yi9_o@j_1+k%uxqpm=4eg-s8yv(k*r$m=^1_28fqr=1n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'moviematchproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": django_mongodb_backend.parse_uri("mongodb+srv://techiediaries9:jb395566@cluster0.v35wh.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0"),
+    "default": django_mongodb_backend.parse_uri("<connection string URI>"),
 }
 
 # Password validation
